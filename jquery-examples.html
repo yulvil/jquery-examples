@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <style>
+    .abc {
+      color: green;
+      font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+<a href="http://jquery.com/">jQuery</a>
+
+<p />
+
+<form>
+  <input type="text" name="fname" />
+</form>
+    
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <script>
+ 
+    $(document).ready(function() {
+  // alert('ready');
+});
+
+$("a").click(function(event) {
+  alert("Link disabled");
+  event.preventDefault();
+});
+
+$("a").addClass("abc");
+// $("a").toggleClass("abc");
+$(".abc").attr("id", "a1");
+$(".abc").attr("id", (i, curr) => curr + "x");
+
+$("a").click(function(event) {
+  event.preventDefault();
+  $(this).hide("slow");
+});
+
+$("p").attr("id", "p1");
+$("#p1").html("ppp");
+$("#p1").data("keyName", {
+  foo: "bar"
+});
+
+if ($("span").length > 0) {}
+
+// Refining selections.
+$("div.foo").has("p"); // div.foo elements that contain <p> tags
+$("h1").not(".bar"); // h1 elements that don't have a class of bar
+$("ul li").filter(".current"); // unordered list items with class of current
+$("ul li").first(); // just the first unordered list item
+$("ul li").eq(5); // the sixth
+
+$("form :input").val("John");
+
+$("<div>newdiv</div>").appendTo("body");
+$("body").append("<div>newdiv2</div>")
+
+$("div").eq(0); // return first div jQuery obj
+$("div").get(0); // return first div DOM elem
+$("div")[0]; // return first div DOM elem
+
+// Set multiple properties
+$("div").css({
+  fontSize: "30px",
+  color: "red"
+});
+
+$.trim("  abc  ");
+$.each(["a", "b", "c"], (i, val) => console.log(i, val));
+
+    </script>
+</body>
+</html>
